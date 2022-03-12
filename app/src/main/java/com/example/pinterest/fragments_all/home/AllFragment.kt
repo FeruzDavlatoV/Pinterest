@@ -74,7 +74,6 @@ class AllFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener {
 
         val scrollListener = object : EndlessRecyclerViewScrollListener(staggeredGridLayoutManager){
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
-                Toast.makeText(requireContext(), page.toString(), Toast.LENGTH_SHORT).show()
                 apiPhotosList()
             }
         }
@@ -90,6 +89,7 @@ class AllFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener {
 //        recyclerView.addItemDecoration(decoration)
 //        recyclerView.adapter = adapter
     }
+
     fun apiPhotosList(){
         swipe.isRefreshing = true
         apiService.getPhotos(page++, per_page).enqueue(object : Callback<List<ResponceItem>> {
@@ -106,7 +106,6 @@ class AllFragment : Fragment(),SwipeRefreshLayout.OnRefreshListener {
 
             override fun onFailure(call: Call<List<ResponceItem>>, t: Throwable) {
                 swipe.isRefreshing = false
-                Log.d("error",t.localizedMessage)
             }
 
         })

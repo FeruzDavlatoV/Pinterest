@@ -1,5 +1,6 @@
 package com.example.pinterest.fragments_all.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,10 +40,20 @@ class WallPaperFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val view = inflater.inflate(R.layout.fragment_wall_paper, container, false)
 
-        recyclerView2 = view.findViewById(R.id.recyclerView2)
-        swipe = view.findViewById(R.id.swipe_refresh2)
+        recyclerView2 = view!!.findViewById(R.id.recyclerView2)
+        swipe = view!!.findViewById(R.id.swipe_refresh2)
+
+        initViews()
+        return view
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
+    private fun initViews() {
+
+
 //        progressBar2 = view.findViewById(R.id.progress_bar2)
 
         list = ArrayList()
@@ -63,8 +74,6 @@ class WallPaperFragment : Fragment() {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
         recyclerView2.layoutManager = layoutManager
-
-        return view
     }
 
     fun apiPhotosList(){
@@ -78,14 +87,12 @@ class WallPaperFragment : Fragment() {
                 if (response.body() != null)
                     photos.addAll(response.body()!!)
                 else
-                    Toast.makeText(context, "Limit has ended", Toast.LENGTH_SHORT).show()
                 swipe.isRefreshing = false
 //                progressBar2.visibility = View.GONE
                 refreshAdapter(photos)
             }
 
             override fun onFailure(call: Call<ArrayList<ResponceItem>>, t: Throwable) {
-                Log.d("@@@",t.message.toString())
                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
 //                progressBar2.visibility = View.GONE
             }
@@ -100,7 +107,6 @@ class WallPaperFragment : Fragment() {
 
         //adapterdan fragmentga intent qilish
         homeTwoAdapter.itemCLick = {
-            Log.d("@@@","XATOLIK")
 
             findNavController().navigate(R.id.detailFragment)
         }

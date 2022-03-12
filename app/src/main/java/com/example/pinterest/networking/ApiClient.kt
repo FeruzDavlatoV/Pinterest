@@ -13,6 +13,8 @@ object ApiClient {
 
     var BASE_URL = "https://api.unsplash.com/"
 
+    public var retrofit2: Retrofit? = null
+
     private val client = getClient()
     private val retrofit  = getRetrofit(client)
 
@@ -60,4 +62,13 @@ object ApiClient {
         return newRetrofit.create(service)
     }
 
+    fun getApiInterface(): ApiService {
+        if (retrofit == null) {
+            retrofit2 = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+        return retrofit!!.create(ApiService::class.java)
+    }
 }

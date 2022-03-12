@@ -2,6 +2,8 @@ package com.example.pinterest.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -40,20 +42,24 @@ class PhotosAdapter(var context: Context, private val list: ArrayList<ResponceIt
             val tv_title = holder.tv_title
             val iv_photo = holder.photo
             val cardView = holder.card_view
+            var photo = holder.photo
 
             Glide.with(holder.itemView.context)
-                .load(note.urls?.thumb)
+                .load(note.urls.thumb)
+                .placeholder(ColorDrawable(Color.parseColor(note.color)))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(iv_photo)
 
 
+
             tv_title.text = note.description
 
+
             cardView.setOnClickListener {
-                GetDetailsInfo1.title = note.description.toString()
-                GetDetailsInfo1.links = note.urls?.regular.toString()
+//                GetDetailsInfo1.title = note.description.toString()
+//                GetDetailsInfo1.links = note.urls.regular.toString()
+                GetDetailsInfo1.id   = note.id
                 itemCLick.invoke(note)
-                Toast.makeText(context, "${note.description} ${note.urls?.thumb}", Toast.LENGTH_SHORT).show()
             }
 
 
