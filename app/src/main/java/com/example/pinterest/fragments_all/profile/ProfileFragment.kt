@@ -62,36 +62,37 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
         tvFollow = view.findViewById(R.id.tv_count1)
         rvSaved = view.findViewById(R.id.recyclerViewProfile)
 
-        staggeredGridLayoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        staggeredGridLayoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
         rvSaved.layoutManager = staggeredGridLayoutManager
         savedPhotoAdapter = SavedPhotoAdapter()
 
 //        navController = Navigation.findNavController(view)
 
-        savedDatabase = SavedDatabase.getDatabase(requireContext())
-
         getSaved()
-        controlClick()
+//        controlClick()
     }
 
     private fun getSaved() {
+        savedDatabase = SavedDatabase.getDatabase(requireContext())
+
+
         savedPhotoAdapter.submitData(savedDatabase.savedDao().getSaved())
         rvSaved.adapter = savedPhotoAdapter
     }
 
-    private fun controlClick() {
-        savedPhotoAdapter.photoClick = {
-            navController.navigate(
-                R.id.detailFragment,
-                bundleOf(
-                    "photoID" to it.saveId,
-                    "photoUrl" to it.url,
-                    "description" to it.description
-                )
-            )
-        }
-    }
+//    private fun controlClick() {
+//        savedPhotoAdapter.photoClick = {
+//            navController.navigate(
+//                R.id.detailFragment,
+//                bundleOf(
+//                    "photoID" to it.saveId,
+//                    "photoUrl" to it.url,
+//                    "description" to it.description
+//                )
+//            )
+//        }
+//    }
 
     fun getUser() {
         apiService.getUser("feruz_davlatov").enqueue(object : Callback<User> {

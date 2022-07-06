@@ -25,6 +25,20 @@
         <entry key="..\:/githubdanYuklanganlar/Pinterest/app/src/main/res/layout/home_recycler_item2.xml" value="0.1641025641025641" />
         <entry key="..\:/githubdanYuklanganlar/Pinterest/app/src/main/res/layout/item_profile.xml" value="0.1641025641025641" />
         <entry key="..\:/githubdanYuklanganlar/Pinterest/app/src/main/res/layout/item_tab_main.xml" value="0.1641025641025641" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/drawable/item_rounded.xml" value="0.1045" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/drawable/selector_icon_home_page.xml" value="0.1045" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/bottom_sheet.xml" value="0.5211864406779662" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_main.xml" value="0.15625" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_nature.xml" value="0.1" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_search.xml" value="0.18" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_update.xml" value="0.19947916666666668" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/fragment_wall_paper.xml" value="0.15625" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/home_recycler_item2.xml" value="0.15625" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/item_profile.xml" value="0.1621376811594203" />
+        <entry key="..\:/githubdanYuklanganlar/PinterestNew/app/src/main/res/layout/item_tab_main.xml" value="0.1621376811594203" />
       </map>
     </option>
   </component>

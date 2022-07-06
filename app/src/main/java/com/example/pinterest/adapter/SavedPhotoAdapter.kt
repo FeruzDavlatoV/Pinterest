@@ -1,6 +1,7 @@
 package com.example.pinterest.adapter
 
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +57,7 @@ class SavedPhotoAdapter() :
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitData(list: List<Profile>) {
         photos.addAll(list)
         notifyDataSetChanged()
